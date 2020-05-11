@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>
+            {{ question }}
+        </title>
+    </head>
+    <body>
+        <center>
+            <h1>{{ question }}</h1>
+            {% for choice in question.choice_set.all %}
+                <li> {{ choice.choice_text }} <li>
+            {% endfor %}
+        </center>        
+    </body>
+</html>
