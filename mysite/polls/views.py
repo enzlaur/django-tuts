@@ -7,12 +7,14 @@ from django.views import generic
 from .models import *
 # from django.views.generic import ListView
 
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
         return Question.objects.order_by('-pub_date')[:5]
+
 
 class DetailView(generic.DetailView):
     model = Question
@@ -46,6 +48,7 @@ class ResultsView(generic.DetailView):
 # def results(request, question_id):
 #     question = get_object_or_404(Question, pk=question_id)
 #     return render(request, 'polls/results.html', {'question': question})
+
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
